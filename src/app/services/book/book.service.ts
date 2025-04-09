@@ -9,7 +9,7 @@ export class BookService {
   readonly BASE_URL = "https://gutendex.com/books/?page="
   page = signal(1)
   books = signal<Book[]>([])
-  selectedBook = signal<Book | undefined>(undefined);
+
 
   constructor() {
     effect(() => {
@@ -27,11 +27,6 @@ export class BookService {
 
   }
 
-  selectBookId(bookId: number) {
-    const selectBook = this.books().find(book => book.id === bookId)
-    if (selectBook) {
-      this.selectedBook.set(selectBook);
-    }
-  }
+
 
 }
